@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'views/first_screen.dart';
+import 'core/di/injector.dart';
+import 'core/network/app_config.dart';
+import 'views/presentation/first_screen.dart';
 
-void main() {
+void main() async {
+  await initializeCore(environment: Environment.staging);
   runApp(const MyApp());
 }
 
