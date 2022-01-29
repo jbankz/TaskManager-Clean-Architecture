@@ -50,8 +50,10 @@ void _initDataContracts() {
 
 /// Initialize services's here
 void _initServices() {
-  inject.registerLazySingleton<NetworkService>(() => NetworkService(baseUrl: AppConfig.coreBaseUrl));
-  inject.registerLazySingleton<TaskService>(() => TaskService(networkService: inject()));
+  inject.registerLazySingleton<NetworkService>(
+      () => NetworkService(baseUrl: AppConfig.coreBaseUrl));
+  inject.registerLazySingleton<TaskService>(
+      () => TaskService(networkService: inject()));
 }
 
 /// Initialize usecases here

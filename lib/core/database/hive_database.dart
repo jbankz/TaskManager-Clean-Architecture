@@ -1,3 +1,4 @@
+import 'package:clean_architecture/views/data/dao/task_dao.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -20,9 +21,15 @@ class HiveManager {
 }
 
 class HiveBoxes {
-  static Future openAllBox() async {}
+  static const String task = 'task';
 
-  static Future clearAllBox() async {}
+  static Future openAllBox() async {
+    taskDao = TaskDao();
+  }
+
+  static Future clearAllBox() async {
+    await taskDao!.clear();
+  }
 
   static Future<Box<T>> openBox<T>(String boxName) async {
     Box<T> box;
@@ -61,5 +68,8 @@ class HiveBoxes {
     }
   }
 
-  static logOut(BuildContext context) async {}
+  static logOut(BuildContext context) async {
+    // clear Hive Db
+    
+  }
 }

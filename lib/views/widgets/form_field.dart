@@ -9,6 +9,7 @@ class Formfields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
       decoration: InputDecoration(
         hintText: hint ?? '',
         contentPadding:
